@@ -143,8 +143,7 @@ h6 {
   background-position: 2px 3px;
 }
 
-.search-input,
-input[type="text"] {
+.search-input {
   width: 100%;
   border: none;
   padding: 1rem 1.5rem;
