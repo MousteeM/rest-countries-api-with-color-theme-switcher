@@ -9,6 +9,7 @@ const getCountryData = async function () {
   filterRegion();
 };
 
+const regionField = document.querySelector(".dropdown-options");
 const cardContainer = document.querySelector(".card-container");
 
 function renderCountries(data, id) {
@@ -47,6 +48,7 @@ function searchCountry() {
   searchInput.addEventListener("keyup", (e) => {
     const searchTerm = e.target.value.toLowerCase().trim();
     //   console.log(searchTerm);
+    regionField.value = "Filter by region";
 
     cards.forEach((card) => {
       const countryName = card
@@ -62,6 +64,8 @@ function searchCountry() {
     });
   });
 }
+
+// const regionField = document.querySelector(".dropdown-options");
 
 function filterRegion() {
   const cards = document.querySelectorAll(".card");

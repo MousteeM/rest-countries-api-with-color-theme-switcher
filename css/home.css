@@ -143,7 +143,8 @@ h6 {
   background-position: 2px 3px;
 }
 
-input[type="search"] {
+.search-input,
+input[type="text"] {
   width: 100%;
   border: none;
   padding: 1rem 1.5rem;
@@ -255,9 +256,9 @@ input[type="drop"] {
   font-size: 1.2rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 991px) {
   .nav-bar {
-    padding: 1rem 3rem;
+    padding: 1rem 3.8rem;
   }
   .nav-bar h1 {
     font-size: 2rem;
@@ -308,11 +309,8 @@ input[type="drop"] {
 
   .card-container {
     display: grid;
-    grid-template-columns: repeat(
-      4,
-      1fr
-    ); /* Set up four columns of equal width */
-    grid-gap: 2rem; /* Add a 20px gap between each card */
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
     max-width: -webkit-fill-available;
     width: fit-content;
   }
@@ -326,4 +324,26 @@ input[type="drop"] {
     overflow: hidden;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   } */
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  /* styles for screens between 768px and 992px */
+  .container {
+    max-width: 100%;
+    width: 90%;
+    margin: 2rem auto;
+    padding-bottom: 3rem;
+  }
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    max-width: -webkit-fill-available;
+    width: fit-content;
+  }
+
+  .card-text {
+    padding: 1rem;
+  }
 }
