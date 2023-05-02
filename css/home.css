@@ -103,6 +103,7 @@ h6 {
   max-width: 600px;
   width: 90%;
   margin: 2rem auto;
+  padding-bottom: 3rem;
 }
 
 .search-container {
@@ -151,6 +152,15 @@ input[type="drop"] {
   padding: 1rem 1.5rem;
 }
 
+.dropdown-options {
+  font-weight: 600;
+  font-size: 1.05rem;
+  border: none;
+  background: none;
+  width: 100%;
+  padding: 1rem;
+}
+
 .filter-field {
   background-color: hsl(0, 0%, 100%);
   width: 60%;
@@ -173,7 +183,7 @@ input[type="drop"] {
   color: hsl(200, 15%, 8%);
   position: absolute;
   top: 130px;
-  /* display: none; */
+  display: none;
 }
 
 .dropdown-content > .filter-value {
@@ -209,4 +219,71 @@ input[type="drop"] {
 
 .card-text > .country-name {
   padding-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-bar {
+    padding: 1rem 3rem;
+  }
+  .nav-bar h1 {
+    font-size: 2rem;
+  }
+
+  .toggle ion-icon {
+    font-size: 1.3rem;
+  }
+
+  .toggle span {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .container {
+    max-width: 100%;
+    /* width: 100%;
+    margin: 2rem; */
+  }
+  .search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .search-submit {
+    max-width: 100%;
+    width: 40%;
+  }
+
+  .search-field ion-icon {
+    /* visibility: hidden; */
+    padding: 0px 1rem;
+  }
+  .filter-field {
+    width: 100%;
+  }
+
+  .dropdown-content {
+    max-width: -webkit-fill-available;
+    top: 64px;
+  }
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(
+      4,
+      1fr
+    ); /* Set up four columns of equal width */
+    grid-gap: 2rem; /* Add a 20px gap between each card */
+    max-width: -webkit-fill-available;
+    width: fit-content;
+  }
+
+  /* .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  } */
 }
