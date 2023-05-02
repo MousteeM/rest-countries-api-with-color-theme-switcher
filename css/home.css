@@ -212,6 +212,13 @@ input[type="drop"] {
   box-sizing: border-box;
 }
 
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+}
+
 .card-text {
   /* background-color: hsl(0, 0%, 100%); */
   padding: 2rem 1.5rem;
