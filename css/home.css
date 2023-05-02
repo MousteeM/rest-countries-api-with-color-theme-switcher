@@ -71,6 +71,10 @@ h6 {
   isolation: isolate;
 }
 
+.hide {
+  display: none;
+}
+
 .nav-bar {
   padding: 1rem 1.5rem;
   display: flex;
@@ -175,6 +179,15 @@ input[type="drop"] {
   margin-bottom: 1.5rem;
 }
 
+.filter-field ion-icon {
+  padding: 0 1rem;
+}
+
+.search-field ion-icon {
+  /* visibility: hidden; */
+  padding: 0px 2rem;
+}
+
 .dropdown-content {
   width: 60%;
   background-color: hsl(0, 0%, 100%);
@@ -208,8 +221,15 @@ input[type="drop"] {
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 0.25rem;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  cursor: pointer;
+}
+
+.card:hover {
+  /* box-shadow: 0 0 9px rgba(160, 60, 60, 0.1); */
+  /* transform: scale(1.1); */
+  /* transition: ; */
 }
 
 .card img {
@@ -217,6 +237,8 @@ input[type="drop"] {
   height: 180px;
   object-fit: cover;
   object-position: center;
+  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
 }
 
 .card-text {
@@ -226,6 +248,7 @@ input[type="drop"] {
 
 .card-text > .country-name {
   padding-bottom: 0.5rem;
+  font-size: 1.2rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -260,9 +283,13 @@ input[type="drop"] {
     width: 40%;
   }
 
+  .search-field {
+    padding-left: 0;
+  }
+
   .search-field ion-icon {
     /* visibility: hidden; */
-    padding: 0px 1rem;
+    padding: 0px 2rem;
   }
   .filter-field {
     width: 100%;
