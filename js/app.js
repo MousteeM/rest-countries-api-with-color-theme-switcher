@@ -6,7 +6,7 @@ const getCountryData = async function () {
     renderCountries(data, i);
   }
   searchCountry();
-  //   filterRegion();
+  filterRegion();
 };
 
 const cardContainer = document.querySelector(".card-container");
@@ -67,15 +67,16 @@ function filterRegion() {
   const cards = document.querySelectorAll(".card");
   const regionField = document.querySelector(".dropdown-options");
   regionField.addEventListener("change", (e) => {
-    const selectedOption = e.target.value;
-
+    const selectedOption = e.target.value.toLowerCase();
+    console.log(selectedOption);
     cards.forEach((card) => {
       const cardRegion = card
         .querySelector(".region")
-        .textContent.toLowerCase()
+        .textContent.slice(8)
+        .toLowerCase()
         .trim();
-      if (cardRegion.includes(selectedOption)) {
-        card.style.display = "block";
+      if (cardRegion !== selectedOption) {
+        card.style.display = "none";
         console.log("test");
       } else {
         card.style.display = "block";
