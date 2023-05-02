@@ -75,6 +75,10 @@ h6 {
   display: none;
 }
 
+.no-capital {
+  color: rgb(186, 19, 19);
+}
+
 .nav-bar {
   padding: 1rem 1.5rem;
   display: flex;
@@ -276,6 +280,7 @@ input[type="drop"] {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 1.5rem;
   }
 
   .search-submit {
@@ -293,6 +298,7 @@ input[type="drop"] {
   }
   .filter-field {
     width: 100%;
+    margin-bottom: 0;
   }
 
   .dropdown-content {

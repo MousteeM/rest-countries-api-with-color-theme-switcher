@@ -6,11 +6,13 @@ const getCountryData = async function () {
     renderCountries(data, i);
   }
   searchCountry();
+  //   filterRegion();
 };
 
 const cardContainer = document.querySelector(".card-container");
 
 function renderCountries(data, id) {
+  const countryCapital = document.querySelector(".capital");
   const flag = data[id].flags.png;
   const { common: name } = data[id].name;
   const population = data[id].population;
@@ -18,8 +20,7 @@ function renderCountries(data, id) {
   const region = data[id].region;
   let capital = "";
   if (!capitalArr) {
-    // add red color
-    capital = `No capital available`;
+    capital = `<span class="no-capital">No capital available</span>`;
   } else capital = capitalArr[0];
 
   const html = `
@@ -31,8 +32,8 @@ function renderCountries(data, id) {
               <div class="card-text">
                   <h3 class="country-name">${name}</h3>
                   <p><b>Population:</b> ${population}</p>
-                  <p><b>Region:</b> ${region}</p>
-                  <p><b>Capital:</b> ${capital}</p>
+                  <p class="region"><b>Region:</b> ${region}</p>
+                  <p class="capital"><b>Capital:</b> ${capital}</p>
               </div>
           </div>
       `;
@@ -58,6 +59,27 @@ function searchCountry() {
         // console.log("match");
       }
       // console.log(countryName);
+    });
+  });
+}
+
+function filterRegion() {
+  const cards = document.querySelectorAll(".card");
+  const regionField = document.querySelector(".dropdown-options");
+  regionField.addEventListener("change", (e) => {
+    const selectedOption = e.target.value;
+
+    cards.forEach((card) => {
+      const cardRegion = card
+        .querySelector(".region")
+        .textContent.toLowerCase()
+        .trim();
+      if (cardRegion.includes(selectedOption)) {
+        card.style.display = "block";
+        console.log("test");
+      } else {
+        card.style.display = "block";
+      }
     });
   });
 }
