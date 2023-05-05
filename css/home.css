@@ -80,7 +80,7 @@ h6 {
 }
 
 .nav-bar {
-  padding: 1rem 1.5rem;
+  padding: 1.3rem 1.5rem;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -277,6 +277,25 @@ input[type="drop"] {
 .big-flag {
   margin: 2rem 0;
 }
+
+.bottom-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bottom-content h3 {
+  margin-bottom: 1rem;
+}
+
+.facts-1,
+facts-2{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+
 
 @media screen and (min-width: 991px) {
   .nav-bar {
