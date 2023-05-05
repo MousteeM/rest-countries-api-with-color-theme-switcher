@@ -255,6 +255,29 @@ input[type="drop"] {
   font-size: 1.2rem;
 }
 
+.country-container {
+  width: 90%;
+  margin: 2rem auto;
+  padding-bottom: 3rem;
+}
+
+.back-btn {
+  margin: 1rem 0;
+  padding: .5em 2.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.big-flag {
+  margin: 2rem 0;
+}
+
 @media screen and (min-width: 991px) {
   .nav-bar {
     padding: 1rem 3.8rem;
@@ -324,6 +347,7 @@ input[type="drop"] {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   } */
 }
+
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
   /* styles for screens between 768px and 992px */
