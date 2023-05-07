@@ -11,43 +11,24 @@ const getCountryData = async function() {
   const res = await fetch("https://restcountries.com/v3.1/all");
   const data = await res.json();
 
-  //   console.log(data);
-  for (let i = 0; i < data.length; i++) {
-    renderCountries(data, i);
-    // cardContainer.addEventListener('click', (event) => {
-    //   // if the clicked element is a card
-    //   if (event.target.closest('.card')) {
-    //     renderCountryDetails(data, i)
-    //   }
-    // });
-  }
-  // const allCards = document.querySelectorAll(".card");
-  // allCards.forEach(country => {
-  //   //console.log(country)
-  //   country.addEventListener('click', () => {
-  //     const countryName = country.getAttribute('data-name');
-  //     console.log(countryName);
-  //     //Replace console.log with code to display specific country
-  //   });
-  // }); 
-  
-  const allCards = document.querySelectorAll(".card");
+//   console.log(data);
+for (let i = 0; i < data.length; i++) {
+  renderCountries(data, i);
+}
+
+const allCards = document.querySelectorAll(".card");
 allCards.forEach(country => {
   country.addEventListener('click', () => {
     const countryName = country.getAttribute('data-name');
     const id = Object.keys(data).find(key => data[key].name.common === countryName);
-    console.log ()
+    console.log()
     renderCountryDetails(data, id);
-    
+
   });
 });
- 
-  
-  // for(let j = 0; j < 5; j++) {
-  //   console.log(allCards[j])
-  // }
-  // searchCountry();
-  filterRegion();
+
+searchCountry();
+filterRegion();
 };
 
 function renderCountries(data, id) {
@@ -127,7 +108,7 @@ function filterRegion() {
 
 function renderCountryDetails(data, id) {
   // const { name, population, region, capital, flags, subregion, nativeName, currencies, languages, borders } = country;
-  
+
   const flag = data[id].flags.svg;
   const { common: name } = data[id].name;
   const population = data[id].population;
@@ -165,7 +146,7 @@ function renderCountryDetails(data, id) {
 
 
   //console.log(borderCountries)
-  
+
   const detailHtml = `
     <div class="big-flag">
       <img src="${flag}" alt="Flag of ${name}">
@@ -198,18 +179,18 @@ function renderCountryDetails(data, id) {
     countryContainer.style.display = 'none'
     homePage.style.display = 'block';
   });
-  
+
 
   // countryContainer.insertAdjacentHTML('beforeend', detailHtml)
   detailContainer.innerHTML = ''
-  detailContainer.insertAdjacentHTML('beforeend', detailHtml) 
-  
-  
+  detailContainer.insertAdjacentHTML('beforeend', detailHtml)
+
+
 
   // countryContainer.classList.remove('hide')
   // detailContainer.classList.remove('hide') 
   // homePage.classList.add('hide')
-  
+
   countryContainer.style.display = 'block'
   detailContainer.style.display = 'block'
   homePage.style.display = 'none';
