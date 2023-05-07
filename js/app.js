@@ -5,7 +5,7 @@ const homePage = document.querySelector('.container')
 const countryContainer = document.querySelector('.country-container');
 const backBtn = document.querySelector('.back-btn');
 const allCards = document.querySelectorAll(".card");
-
+const topContent = document.querySelector('.top-content')
 const getCountryData = async function() {
   const res = await fetch("https://restcountries.com/v3.1/all");
   const data = await res.json();
@@ -142,18 +142,11 @@ function renderCountryDetails(data, id) {
 
 
   //console.log(borderCountries)
-
-  countryContainer.innerHTML = `
-    <div class="top-content">
-      <div class="back-btn">
-        <ion-icon name="arrow-back-outline"></ion-icon>
-        <span>Back</span>
-      </div>
-      <div class="big-flag">
-        <img src="${flag}" alt="Flag of ${name}">
-      </div>
+  
+  const detailHtml = `
+    <div class="big-flag">
+      <img src="${flag}" alt="Flag of ${name}">
     </div>
-
     <div class="bottom-content">
       <div class="country-facts">
         <h3 class="country-name">${name}</h3>
@@ -179,29 +172,17 @@ function renderCountryDetails(data, id) {
     </div>
   `;
   backBtn.addEventListener("click", () => {
-    console.log('this ')
+    countryContainer.style.display = 'none'
+    homePage.style.display = 'block';
   });
+  
+
+  countryContainer.insertAdjacentHTML('beforeend', detailHtml)
 
 
   countryContainer.style.display = 'block'
   homePage.style.display = 'none';
 }
 
-// backBtn.addEventListener('click', () => {
-//   console.log('hello')
-//   countryContainer.classList.add('hide');
-//   homePage.classList.remove('hide');
-// });
-
-function goBack() {
-  console.log('hello')
-  countryContainer.classList.add('hide');
-  homePage.classList.remove('hide');
-}
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   backBtn.addEventListener("click", goBack);
-// });
-//backBtn.addEventListener("click", goBack);
 
 getCountryData();
