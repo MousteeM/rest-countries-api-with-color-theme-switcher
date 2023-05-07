@@ -289,7 +289,7 @@ input[type="drop"] {
 }
 
 .facts-1,
-facts-2{
+.facts-2{
   display: flex;
   flex-direction: column;
   gap: .5rem;

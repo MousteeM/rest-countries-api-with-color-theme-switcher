@@ -17,13 +17,9 @@ const getCountryData = async function() {
       // if the clicked element is a card
       if (event.target.closest('.card')) {
         renderCountryDetails(data, i)
-        // TODO: populate the country container with data for the clicked country
       }
     });
   }
-
-
-
   searchCountry();
   filterRegion();
 };
