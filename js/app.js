@@ -131,7 +131,7 @@ function renderCountryDetails(data, id) {
   const borders = data[id].borders
 
   if (!borders) {
-    borderCountries = `No local language available`
+    borderCountries = `No borders available`
   } else {
     borderCountries = borders.length > 0 ? borders.map((border) => `<span class="border">${border}</span>`).join('') : 'None'
   }
