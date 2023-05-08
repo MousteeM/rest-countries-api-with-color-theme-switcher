@@ -40,7 +40,6 @@ const getCountryData = async function() {
 
   searchCountry();
   filterRegion();
-  themeToggle.addEventListener('click', toggle)
 };
 
 function renderCountries(data, id) {
@@ -226,6 +225,6 @@ function toggle() {
   })
 }
 
-//themeToggle.addEventListener('click', toggle) 
+themeToggle.addEventListener('click', toggle) 
 
 getCountryData();
