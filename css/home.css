@@ -31,6 +31,11 @@ body {
   font-family: "Nunito Sans";
   color: hsl(200, 15%, 8%);
 }
+
+.dark-mode {
+  background-color: hsl(207, 26%, 17%);
+  color: hsl(0, 0%, 100%);
+}
 /*
     6. Improve media defaults
   */
@@ -222,6 +227,10 @@ input[type="drop"] {
   gap: 1rem;
 }
 
+.card-container-dark {
+  background-color: hsl(207, 26%, 17%);
+}
+
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 0.25rem;
@@ -274,6 +283,11 @@ input[type="drop"] {
   cursor: pointer;
 }
 
+/* .back-btn-dark {
+  background-color: hsl(209, 23%, 22%); 
+} */
+
+
 .big-flag {
   margin: 2rem 0;
 }
@@ -309,6 +323,23 @@ input[type="drop"] {
   cursor: pointer;
 }
 
+.card-text-dark, 
+.back-btn-dark, 
+.border-dark, 
+.navbar-dark {
+  background-color: hsl(209, 23%, 22%);
+} 
+
+.search-dark, 
+.filter-dark, 
+.search-input-dark{
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%)
+}
+
+.dropdown-dark {
+  color: hsl(0, 0%, 100%);
+}
 
 @media screen and (min-width: 991px) {
   .nav-bar {

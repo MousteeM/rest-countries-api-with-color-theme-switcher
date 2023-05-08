@@ -7,28 +7,40 @@ const detailContainer = document.querySelector('.details');
 const backBtn = document.querySelector('.back-btn');
 //const allCards = document.querySelectorAll(".card");
 const topContent = document.querySelector('.top-content')
+const body = document.body
+const themeToggle = document.querySelector('.toggle')
+const cardText = document.querySelector('.card-text')
+const navbar = document.querySelector('.nav-bar')
+const searchField = document.querySelector('.search-field')
+const searchInput = document.querySelector('.search-input')
+const filter = document.querySelector('.filter-field')
+//const border =
+
+
+
 const getCountryData = async function() {
   const res = await fetch("https://restcountries.com/v3.1/all");
   const data = await res.json();
 
-//   console.log(data);
-for (let i = 0; i < data.length; i++) {
-  renderCountries(data, i);
-}
+  //   console.log(data);
+  for (let i = 0; i < data.length; i++) {
+    renderCountries(data, i);
+  }
 
-const allCards = document.querySelectorAll(".card");
-allCards.forEach(country => {
-  country.addEventListener('click', () => {
-    const countryName = country.getAttribute('data-name');
-    const id = Object.keys(data).find(key => data[key].name.common === countryName);
-    console.log()
-    renderCountryDetails(data, id);
+  const allCards = document.querySelectorAll(".card");
+  allCards.forEach(country => {
+    country.addEventListener('click', () => {
+      const countryName = country.getAttribute('data-name');
+      const id = Object.keys(data).find(key => data[key].name.common === countryName);
+      console.log()
+      renderCountryDetails(data, id);
 
+    });
   });
-});
 
-searchCountry();
-filterRegion();
+  searchCountry();
+  filterRegion();
+  themeToggle.addEventListener('click', toggle)
 };
 
 function renderCountries(data, id) {
@@ -44,19 +56,19 @@ function renderCountries(data, id) {
   } else capital = capitalArr[0];
 
   const html = `
-          <div class="card" data-name="${name}">
-              <img
-              src="${flag}"
-              alt="Flag of ${name}"
-              />
-              <div class="card-text">
-                  <h3 class="country-name">${name}</h3>
-                  <p><b>Population:</b> ${population}</p>
-                  <p class="region"><b>Region:</b> ${region}</p>
-                  <p class="capital"><b>Capital:</b> ${capital}</p>
-              </div>
-          </div>
-      `;
+      <div class="card" data-name="${name}">
+        <img
+        src="${flag}"
+        alt="Flag of ${name}"
+        />
+        <div class="card-text">
+          <h3 class="country-name">${name}</h3>
+          <p><b>Population:</b> ${population}</p>
+          <p class="region"><b>Region:</b> ${region}</p>
+          <p class="capital"><b>Capital:</b> ${capital}</p>
+        </div>
+      </div>
+  `;
 
   cardContainer.insertAdjacentHTML("beforeend", html);
 }
@@ -89,7 +101,7 @@ function filterRegion() {
   const regionField = document.querySelector(".dropdown-options");
   regionField.addEventListener("change", (e) => {
     const selectedOption = e.target.value.toLowerCase();
-    console.log(selectedOption);
+    //console.log(selectedOption);
     cards.forEach((card) => {
       const cardRegion = card
         .querySelector(".region")
@@ -98,7 +110,7 @@ function filterRegion() {
         .trim();
       if (cardRegion !== selectedOption) {
         card.style.display = "none";
-        console.log("test");
+        //console.log("test");
       } else {
         card.style.display = "block";
       }
@@ -179,22 +191,41 @@ function renderCountryDetails(data, id) {
     countryContainer.style.display = 'none'
     homePage.style.display = 'block';
   });
-
-
-  // countryContainer.insertAdjacentHTML('beforeend', detailHtml)
+  
+  
   detailContainer.innerHTML = ''
   detailContainer.insertAdjacentHTML('beforeend', detailHtml)
-
-
-
-  // countryContainer.classList.remove('hide')
-  // detailContainer.classList.remove('hide') 
-  // homePage.classList.add('hide')
 
   countryContainer.style.display = 'block'
   detailContainer.style.display = 'block'
   homePage.style.display = 'none';
 }
 
+function toggle() {
+  let allCards = document.querySelectorAll('.card')
+  let borderCountry = document.querySelectorAll('.border')
+  const dropdown = document.querySelectorAll('.dropdown-options') 
+  
+  
+  body.classList.toggle('dark-mode')
+  cardContainer.classList.toggle('card-container-dark')
+  //cardText.classList.toggle('card-text-dark')
+  allCards.forEach(card => {
+    card.classList.toggle('card-text-dark')
+  })
+  backBtn.classList.toggle('back-btn-dark')
+  borderCountry.forEach(border => {
+    border.classList.toggle('border-dark')
+  })
+  navbar.classList.toggle('navbar-dark')
+  searchField.classList.toggle('search-dark')
+  searchInput.classList.toggle('search-input-dark')
+  filter.classList.toggle('filter-dark')
+  dropdown.forEach(option => {
+    option.classList.toggle('dropdown-dark')
+  })
+}
+
+//themeToggle.addEventListener('click', toggle) 
 
 getCountryData();
