@@ -148,11 +148,13 @@ function renderCountryDetails(data, id) {
     languageString = Object.values(languages).map((language) => language).join(', ')
   }
   const borders = data[id].borders
-
+  
   if (!borders) {
     borderCountries = `No borders available`
   } else {
-    borderCountries = borders.length > 0 ? borders.map((border) => `<span class="border">${border}</span>`).join('') : 'None'
+    const isInDarkMode = document.body.classList.contains('dark-mode')
+    const borderDarkMode = isInDarkMode ? 'border-dark' : ''
+    borderCountries = borders.length > 0 ? borders.map((border) =>  `<span class="border ${borderDarkMode}">${border}</span>`).join('') : 'None'
   }
 
 
@@ -190,8 +192,8 @@ function renderCountryDetails(data, id) {
     countryContainer.style.display = 'none'
     homePage.style.display = 'block';
   });
-  
-  
+
+
   detailContainer.innerHTML = ''
   detailContainer.insertAdjacentHTML('beforeend', detailHtml)
 
@@ -203,9 +205,9 @@ function renderCountryDetails(data, id) {
 function toggle() {
   let allCards = document.querySelectorAll('.card')
   let borderCountry = document.querySelectorAll('.border')
-  const dropdown = document.querySelectorAll('.dropdown-options') 
-  
-  
+  const dropdown = document.querySelectorAll('.dropdown-options')
+
+
   body.classList.toggle('dark-mode')
   cardContainer.classList.toggle('card-container-dark')
   //cardText.classList.toggle('card-text-dark')
@@ -225,6 +227,6 @@ function toggle() {
   })
 }
 
-themeToggle.addEventListener('click', toggle) 
+themeToggle.addEventListener('click', toggle)
 
 getCountryData();
