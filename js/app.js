@@ -14,9 +14,8 @@ const navbar = document.querySelector('.nav-bar')
 const searchField = document.querySelector('.search-field')
 const searchInput = document.querySelector('.search-input')
 const filter = document.querySelector('.filter-field')
-//const border =
-
-
+const ionIconElement = document.querySelector('ion-icon');
+const mode = document.querySelector('.mode-text')
 
 const getCountryData = async function() {
   const res = await fetch("https://restcountries.com/v3.1/all");
@@ -225,6 +224,13 @@ function toggle() {
   dropdown.forEach(option => {
     option.classList.toggle('dropdown-dark')
   })
+  if (document.body.classList.contains('dark-mode')) {
+    ionIconElement.setAttribute('name', 'sunny-outline');
+    mode.textContent = 'Light Mode'
+  } else {
+    ionIconElement.setAttribute('name', 'moon-outline');
+    mode.textContent = 'Dark Mode'
+  }
 }
 
 themeToggle.addEventListener('click', toggle)
