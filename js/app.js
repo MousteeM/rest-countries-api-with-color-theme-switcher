@@ -62,7 +62,7 @@ function renderCountries(data, id) {
         />
         <div class="card-text">
           <h3 class="country-name">${name}</h3>
-          <p><b>Population:</b> ${population}</p>
+          <p><b>Population:</b> ${population.toLocaleString()}</p>
           <p class="region"><b>Region:</b> ${region}</p>
           <p class="capital"><b>Capital:</b> ${capital}</p>
         </div>
@@ -167,7 +167,7 @@ function renderCountryDetails(data, id) {
         <h3 class="country-name">${name}</h3>
         <div class="facts-1">
           <p><strong>Native Name:</strong> ${nativeName}</p>
-          <p><strong>Population:</strong> ${population}</p>
+          <p><strong>Population:</strong> ${population.toLocaleString()}</p>
           <p><strong>Region:</strong> ${region}</p>
           <p><strong>Sub Region:</strong> ${subregion}</p>
           <p><strong>Capital:</strong> ${capital}</p>
